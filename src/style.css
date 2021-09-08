@@ -1,3 +1,17 @@
+:root {
+  --white-color: white;
+  --white-color-dark: #00000015;
+  --black-color: black;
+  --background-color: white;
+}
+
+:root.dark-mode {
+  --white-color: #2b3743;
+  --white-color-dark: #00000015;
+  --black-color: white;
+  --background-color: #212e37;
+}
+
 .header-title {
   font-weight: 800;
   font-size: 15px;
