@@ -11,6 +11,29 @@
   --black-color: white;
   --background-color: #212e37;
 }
+a {
+  color: var(--black-color);
+  text-decoration: none;
+}
+
+header {
+  box-shadow: 0 4px 8px 4px var(--white-color-dark);
+}
+
+header {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  padding: 40px 35px;
+  max-height: 62px;
+  user-select: none;
+}
 
 .header-title {
   font-weight: 800;
