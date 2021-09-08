@@ -11,9 +11,16 @@
   --black-color: white;
   --background-color: #212e37;
 }
+
 a {
   color: var(--black-color);
   text-decoration: none;
+}
+
+header,
+#root,
+html {
+  transition: background-color 350ms ease-out, color 0.3s;
 }
 
 header {
@@ -55,4 +62,9 @@ header {
 .header-dark-mode-icon span {
   font-size: 12px;
   font-weight: 600;
+}
+
+#root,
+html {
+  background-color: var(--background-color);
 }
