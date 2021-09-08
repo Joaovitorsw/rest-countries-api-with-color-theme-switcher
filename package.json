@@ -1,4 +1,17 @@
 {
+  "name": "spa",
+  "version": "1.0.1",
+  "description": "SPA using JavaScript",
+  "scripts": {
+    "start": "parcel ./src/index.html --open",
+    "build": "parcel build ./src/index.html --detailed-report"
+  },
+  "keywords": [
+    "spa",
+    "javascript"
+  ],
+  "author": "João Vitor Pereira dos Santos",
+  "license": "ISC",
   "dependencies": {
     "parcel": "^2.0.0-rc.0"
   }
