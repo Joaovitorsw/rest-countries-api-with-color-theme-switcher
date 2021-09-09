@@ -5,4 +5,7 @@ export class DarkModeUI {
     const headerContent = $header.querySelector(".header-dark-mode-icon");
     headerContent.addEventListener("click", DarkModeUI.darkMode);
   }
+  static darkMode() {
+    document.documentElement.classList.toggle("dark-mode");
+  }
 }
