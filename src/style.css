@@ -189,6 +189,30 @@ html {
   padding: 20px;
   order: 0;
 }
+.selected::after {
+  content: "";
+  background: url("images/icon-arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  padding: 4px;
+  top: 40%;
+  right: 20px;
+  transition: transform 0.4s ease;
+}
+:root.dark-mode .selected::after {
+  content: "";
+  background: url("images/icon-arrow-down-dark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  padding: 4px;
+  top: 40%;
+  right: 20px;
+  transition: transform 0.4s ease;
+}
 
 .selected:hover {
   background-color: var(--white-color-dark);
