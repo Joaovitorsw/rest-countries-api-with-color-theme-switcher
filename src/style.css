@@ -193,3 +193,15 @@ html {
 .selected:hover {
   background-color: var(--white-color-dark);
 }
+
+.option {
+  padding: 15px 20px;
+  background-color: var(--white-color);
+  transition: transform 0.2s ease;
+  transform: scale(1);
+}
+
+.option:hover {
+  transform: scale(0.95);
+  background-color: var(--white-color-dark);
+}
