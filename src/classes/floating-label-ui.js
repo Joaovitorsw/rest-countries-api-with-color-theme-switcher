@@ -12,4 +12,12 @@ export class FloatingLabelUI {
     this.$searchLabel = this.$homePage.querySelector(".search-bar-label");
     this.#inputCallback = inputCallBack;
   }
+
+  #elementClassAdd($element, status) {
+    $element.classList.add(status);
+  }
+
+  #elementClassRemove($element, status) {
+    $element.classList.remove(status);
+  }
 }
