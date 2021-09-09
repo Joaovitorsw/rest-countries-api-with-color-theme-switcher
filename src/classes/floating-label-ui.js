@@ -20,6 +20,15 @@ export class FloatingLabelUI {
     this.$searchInput.addEventListener("change", () => this.#hasValue());
   }
 
+  #hasValue() {
+    const inputValue = this.$searchInput.value;
+    const hasValueInput = inputValue !== "";
+    const classFn = hasValueInput
+      ? this.#elementClassAdd
+      : this.#elementClassRemove;
+    classFn(this.$searchLabel, "active");
+  }
+
   #elementClassAdd($element, status) {
     $element.classList.add(status);
   }
