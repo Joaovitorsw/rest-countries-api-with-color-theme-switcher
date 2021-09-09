@@ -13,7 +13,10 @@
   "author": "João Vitor Pereira dos Santos",
   "license": "ISC",
   "dependencies": {
-    "parcel": "^2.0.0-rc.0"
+    "@parcel/transformer-svg": "^2.0.0-nightly.2430",
+    "parcel": "^2.0.0-rc.0",
+    "parcel-plugin-inlinesvg": "^0.1.1",
+    "svg-to-jsx": "^1.0.3"
   },
   "devDependencies": {
     "@parcel/transformer-image": "^2.0.0-rc.0"
