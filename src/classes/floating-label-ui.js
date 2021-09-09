@@ -12,6 +12,13 @@ export class FloatingLabelUI {
     this.$searchLabel = this.$homePage.querySelector(".search-bar-label");
     this.#inputCallback = inputCallBack;
   }
+  FloatingLabelUI() {
+    this.#inputEventListener();
+  }
+
+  #inputEventListener() {
+    this.$searchInput.addEventListener("change", () => this.#hasValue());
+  }
 
   #elementClassAdd($element, status) {
     $element.classList.add(status);
