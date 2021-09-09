@@ -1,6 +1,14 @@
 import { CountriesAPI } from "../classes/countries-api.js";
 
 export class CountriesUI {
+  $countriesContent;
+
+  constructor($element) {
+    this.$countriesContent = document.querySelector($element);
+    CountriesAPI.getCountries().then((countries) => {
+      countries.forEach((country) => this.createCountryCard(country));
+    });
+  }
   createCountryCard(country) {
     const $country = document.createElement("div");
     $country.classList.add("country");
