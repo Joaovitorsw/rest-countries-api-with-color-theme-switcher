@@ -1,4 +1,6 @@
 import { ROUTES } from "../classes/routes.js";
+import { FloatingLabelUI } from "../classes/floating-label-ui.js";
+import { MenuUI } from "../classes/menu-ui.js";
 import { $main } from "../script.js";
 
 export class SinglePageApplication {
@@ -23,6 +25,12 @@ export class SinglePageApplication {
     $main.appendChild(html);
 
     if (hashedRoute === "") return SinglePageApplication.setupHome();
+  }
+  static setupHome() {
+    const filterByRegion = new MenuUI("#root");
+    const searchBar = new FloatingLabelUI(".homepage");
+    searchBar.FloatingLabelUI();
+    filterByRegion.menuUI();
   }
   static addWindowLoadListener() {
     window.addEventListener("load", async () => {
