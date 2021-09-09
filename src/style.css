@@ -356,3 +356,25 @@ html {
   font-weight: 700;
   font-size: 20px;
 }
+.country-page-borders {
+  display: grid;
+  text-align: center;
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+}
+.country-page-shortcuts h2 {
+  font-weight: 700;
+}
+.country-borders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: var(--white-color);
+  font-size: 12px;
+  height: 100%;
+  max-height: 32px;
+  padding: 8px;
+}
