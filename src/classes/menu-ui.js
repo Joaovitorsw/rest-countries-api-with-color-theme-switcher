@@ -34,7 +34,15 @@ export class MenuUI {
       });
     });
   }
+
   #menuShowContent() {
     this.#toggleClassElement(this.#$optionsContainer, "active");
+  }
+
+  #toggleClassElement($element, status) {
+    $element.classList.toggle(status);
+  }
+  #removeClassElement($element, status) {
+    $element.classList.remove(status);
   }
 }
