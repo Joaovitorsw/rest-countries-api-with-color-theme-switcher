@@ -299,6 +299,24 @@ html {
   min-height: 180px;
   user-select: none;
 }
+.country-content {
+  padding: 50px 30px;
+}
+
+.back {
+  align-self: flex-start;
+  width: 100%;
+  max-width: 100px;
+  padding: 10px;
+  border: none;
+  color: var(--black-color);
+  background: var(--white-color);
+  margin-bottom: 50px;
+}
+.arrow {
+  margin-right: 5px;
+  content: url(images/arrow-right.svg);
+}
 
 .country-page-flag {
   display: flex;
