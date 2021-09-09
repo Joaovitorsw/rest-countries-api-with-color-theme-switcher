@@ -201,6 +201,11 @@ html {
   right: 20px;
   transition: transform 0.4s ease;
 }
+.options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: 20px;
+}
+
 :root.dark-mode .selected::after {
   content: "";
   background: url("images/icon-arrow-down-dark.svg");
