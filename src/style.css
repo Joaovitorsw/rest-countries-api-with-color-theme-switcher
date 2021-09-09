@@ -170,3 +170,26 @@ html {
 .option .radio {
   display: none;
 }
+
+.select-box {
+  margin-top: 20px;
+  display: flex;
+  max-width: 200px;
+  max-height: 54px;
+  flex-direction: column;
+  font-size: 14px;
+}
+.selected {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  position: relative;
+  outline: none;
+  padding: 20px;
+  order: 0;
+}
+
+.selected:hover {
+  background-color: var(--white-color-dark);
+}
