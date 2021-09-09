@@ -16,4 +16,22 @@ export class MenuUI {
       this.#$selectBox.querySelector(".options-container");
     this.#filterCallback = filterCallback;
   }
+
+  menuUI() {
+    this.#menuContentListener();
+    this.#menuAddListener();
+  }
+  #menuContentListener() {
+    this.#$selectItem.addEventListener("click", () => this.#menuShowContent());
+  }
+
+  #menuAddListener() {
+    this.#$menuList.forEach(($itemMenu) => {
+      $itemMenu.addEventListener("click", async () => {
+        const labelValue = $itemMenu.querySelector("label").innerHTML;
+        this.#$selectItem.innerHTML = labelValue;
+        this.#removeClassElement(this.#$optionsContainer, "active");
+      });
+    });
+  }
 }
