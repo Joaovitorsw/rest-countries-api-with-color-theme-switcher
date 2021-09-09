@@ -34,4 +34,7 @@ export class MenuUI {
       });
     });
   }
+  #menuShowContent() {
+    this.#toggleClassElement(this.#$optionsContainer, "active");
+  }
 }
