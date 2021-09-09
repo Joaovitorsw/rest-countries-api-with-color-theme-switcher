@@ -36,7 +36,8 @@ header::before {
 }
 
 header,
-.homepage {
+.homepage,
+.country-content {
   font-family: "Nunito Sans", sans-serif;
 }
 
@@ -317,6 +318,22 @@ html {
   margin-right: 5px;
   content: url(images/arrow-right.svg);
 }
+:root.dark-mode .arrow {
+  margin-right: 5px;
+  content: url(images/arrow-right-dark.svg);
+}
+.country-text {
+  margin-top: 20px;
+}
+.country-page {
+  display: flex;
+  padding: 35px 0px;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  color: var(--black-color);
+  background-color: var(--background-color);
+}
 
 .country-page-flag {
   display: flex;
@@ -329,4 +346,13 @@ html {
   min-width: 120px;
   min-height: 120px;
   max-height: 375px;
+}
+
+.country-info,
+.country-page-name {
+  margin: 20px 0px;
+}
+.country-page-name {
+  font-weight: 700;
+  font-size: 20px;
 }
