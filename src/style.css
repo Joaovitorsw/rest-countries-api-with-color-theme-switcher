@@ -86,7 +86,9 @@ html {
 
 .search-bar,
 .options-container,
-.selected {
+.selected,
+.country,
+.country-flag {
   box-shadow: 0 4px 8px 4px var(--white-color-dark);
 }
 
@@ -247,4 +249,20 @@ html {
   visibility: visible;
   max-height: 280px;
   opacity: 1;
+}
+
+.countries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 80px;
+}
+.country-flag {
+  border-radius: 5px 5px 0px 0px;
+  object-fit: cover;
+  width: 100%;
+  min-height: 180px;
+  user-select: none;
 }
