@@ -229,3 +229,17 @@ html {
   transform: scale(0.95);
   background-color: var(--white-color-dark);
 }
+
+.options-container {
+  visibility: hidden;
+  max-height: 0;
+  opacity: 0;
+  order: 1;
+  width: 100%;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+}
+.options-container.active {
+  visibility: visible;
+  max-height: 280px;
+  opacity: 1;
+}
