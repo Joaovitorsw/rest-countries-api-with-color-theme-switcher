@@ -9,10 +9,15 @@ export class CountriesUI {
       this.countriesReset();
       countries.forEach((country) => this.createCountryCard(country));
     });
+    this.inputText = "";
   }
 
   selectedCallback(region) {
     this.regionValue = region;
+    this.createRegions();
+  }
+  inputCallback(text) {
+    this.inputText = text;
     this.createRegions();
   }
 
