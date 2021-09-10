@@ -31,4 +31,20 @@ export class DynamicBorders {
 
     return $countryPageBorders;
   }
+  async borderCountry(borderCountry) {
+    const requestName = await fetch(
+      `https://restcountries.eu/rest/v2/alpha/${borderCountry}`
+    );
+    const countryBorder = await requestName.json();
+    const $countryPage = document.createElement("a");
+    const patternRemoveParentheses = / *\([^)]*\) */g;
+    $countryPage.setAttribute("href", `/#countrypage/${borderCountry}`);
+    $countryPage.classList.add("country-borders");
+    $countryPage.innerHTML = `<li>${countryBorder.name.replace(
+      patternRemoveParentheses,
+      ""
+    )}</li>`;
+
+    return $countryPage;
+  }
 }
