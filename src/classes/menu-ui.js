@@ -20,7 +20,14 @@ export class MenuUI {
   menuUI() {
     this.#menuContentListener();
     this.#menuAddListener();
+    this.#regionCallback();
   }
+
+  #regionCallback() {
+    const regionValue = this.#$root.querySelector(".selected").innerText;
+    this.#filterCallback(regionValue);
+  }
+
   #menuContentListener() {
     this.#$selectItem.addEventListener("click", () => this.#menuShowContent());
   }
@@ -31,6 +38,7 @@ export class MenuUI {
         const labelValue = $itemMenu.querySelector("label").innerHTML;
         this.#$selectItem.innerHTML = labelValue;
         this.#removeClassElement(this.#$optionsContainer, "active");
+        this.#regionCallback();
       });
     });
   }
