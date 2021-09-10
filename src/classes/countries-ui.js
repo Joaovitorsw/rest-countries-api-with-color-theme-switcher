@@ -80,7 +80,6 @@ export class CountriesUI {
     setTimeout(() => {
       const countryLength =
         this.$countriesContent.querySelectorAll(".country").length;
-      console.log(countryLength);
       const isLessThant6 = countryLength < 6;
       const classFn = isLessThant6
         ? this.#elementClassAdd
