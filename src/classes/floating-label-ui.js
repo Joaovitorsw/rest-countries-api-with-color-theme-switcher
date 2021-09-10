@@ -20,6 +20,17 @@ export class FloatingLabelUI {
     this.$searchInput.addEventListener("change", () => this.#hasValue());
   }
 
+  #debounceEvent(callback, timeout) {
+    let timer;
+
+    return () => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        callback();
+      }, timeout);
+    };
+  }
+
   #hasValue() {
     const inputValue = this.$searchInput.value;
     const hasValueInput = inputValue !== "";
