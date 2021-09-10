@@ -11,6 +11,11 @@ export class CountriesUI {
     });
   }
 
+  selectedCallback(region) {
+    this.regionValue = region;
+    this.createRegions();
+  }
+
   async createRegions() {
     const hasRegion = this.regionValue !== "Filter by Region";
     const countriesFn = hasRegion
