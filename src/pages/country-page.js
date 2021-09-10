@@ -1,3 +1,5 @@
+import { DynamicBorders } from "../classes/dynamic-borders.js";
+
 export async function CountryPage(id) {
   const request = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
   const actuallyCountry = await request.json();
@@ -5,6 +7,7 @@ export async function CountryPage(id) {
   const $countryPage = document.createElement("div");
   const $countryContent = document.createElement("div");
   const $countryText = document.createElement("div");
+  const dynamicBorders = await new DynamicBorders(country.borders);
 
   $countryPage.classList.add("country-page");
   $countryContent.classList.add("country-content");
@@ -57,6 +60,9 @@ export async function CountryPage(id) {
    </ul>
   `;
 
+  $countryText.appendChild($divBorders);
   $countryPage.appendChild($countryText);
   $countryContent.append($countryPage);
+
+  return $countryContent;
 }
