@@ -72,6 +72,7 @@ export class CountriesUI {
           </h4><a/>`;
 
     $country.innerHTML = countryInnerHTML;
+    this.#countriesClass();
     this.$countriesContent.appendChild($country);
   }
 
