@@ -2,6 +2,8 @@ import { CountriesAPI } from "../classes/countries-api.js";
 
 export class CountriesUI {
   $countriesContent;
+  inputText;
+  regionValue;
 
   constructor($element) {
     this.$countriesContent = document.querySelector($element);
@@ -16,6 +18,7 @@ export class CountriesUI {
     this.regionValue = region;
     this.createRegions();
   }
+
   inputCallback(text) {
     this.inputText = text;
     this.createRegions();
@@ -38,6 +41,7 @@ export class CountriesUI {
       .forEach((filteredRegionsCountries) =>
         this.createCountryCard(filteredRegionsCountries)
       );
+    this.#countriesClass();
   }
 
   countriesReset() {
@@ -69,5 +73,26 @@ export class CountriesUI {
 
     $country.innerHTML = countryInnerHTML;
     this.$countriesContent.appendChild($country);
+  }
+
+  #countriesClass() {
+    setTimeout(() => {
+      const countryLength =
+        this.$countriesContent.querySelectorAll(".country").length;
+      console.log(countryLength);
+      const isLessThant6 = countryLength < 6;
+      const classFn = isLessThant6
+        ? this.#elementClassAdd
+        : this.#elementClassRemove;
+      classFn(this.$countriesContent, "active");
+    }, 60);
+    clearTimeout();
+  }
+  #elementClassAdd($element, status) {
+    $element.classList.add(status);
+  }
+
+  #elementClassRemove($element, status) {
+    $element.classList.remove(status);
   }
 }
