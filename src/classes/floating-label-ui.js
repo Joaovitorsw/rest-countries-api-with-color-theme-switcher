@@ -18,6 +18,12 @@ export class FloatingLabelUI {
 
   #inputEventListener() {
     this.$searchInput.addEventListener("change", () => this.#hasValue());
+    this.$searchInput.addEventListener(
+      "input",
+      this.#debounceEvent(() => {
+        this.#inputCallback(this.$searchInput.value);
+      }, 800)
+    );
   }
 
   #debounceEvent(callback, timeout) {

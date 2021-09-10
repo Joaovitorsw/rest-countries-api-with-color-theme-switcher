@@ -32,7 +32,9 @@ export class SinglePageApplication {
     const filterByRegion = new MenuUI("#root", (region) =>
       countries.selectedCallback(region)
     );
-    const searchBar = new FloatingLabelUI(".homepage");
+    const searchBar = new FloatingLabelUI(".homepage", async (text) =>
+      countries.inputCallback(text)
+    );
     searchBar.FloatingLabelUI();
     filterByRegion.menuUI();
   }
