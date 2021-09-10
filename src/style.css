@@ -89,7 +89,10 @@ html {
 .options-container,
 .selected,
 .country,
-.country-flag {
+.country-flag,
+.country-page-flag,
+.country-borders,
+.back {
   box-shadow: 0 4px 8px 4px var(--white-color-dark);
 }
 
@@ -383,7 +386,7 @@ html {
 @media screen and (min-width: 700px) {
   header::before {
     box-shadow: 0px 0px 6px 6px var(--white-color-dark);
-    height: 8%;
+    height: 8.3%;
   }
 
   ::-webkit-scrollbar {
