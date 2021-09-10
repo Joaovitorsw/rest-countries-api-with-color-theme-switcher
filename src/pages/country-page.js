@@ -7,7 +7,8 @@ export async function CountryPage(id) {
   const $countryPage = document.createElement("div");
   const $countryContent = document.createElement("div");
   const $countryText = document.createElement("div");
-  const dynamicBorders = await new DynamicBorders(country.borders);
+  const dynamicBorders = await new DynamicBorders(actuallyCountry.borders);
+  const $divBorders = await dynamicBorders.dynamicBordersUI();
 
   $countryPage.classList.add("country-page");
   $countryContent.classList.add("country-content");
