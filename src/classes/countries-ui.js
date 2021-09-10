@@ -6,9 +6,34 @@ export class CountriesUI {
   constructor($element) {
     this.$countriesContent = document.querySelector($element);
     CountriesAPI.getCountries().then((countries) => {
+      this.countriesReset();
       countries.forEach((country) => this.createCountryCard(country));
     });
   }
+
+  async createRegions() {
+    const hasRegion = this.regionValue !== "Filter by Region";
+    const countriesFn = hasRegion
+      ? CountriesAPI.getRegions
+      : CountriesAPI.getCountries;
+    const regions = await countriesFn(this.regionValue);
+    this.countriesReset();
+    regions
+      .filter((regionCountries) => {
+        const regionCountriesLowerCase = regionCountries.name.toLowerCase();
+        const userText = this.inputText.toLowerCase();
+        const hasCountry = regionCountriesLowerCase.indexOf(userText) > -1;
+        return hasCountry ?? regionCountries;
+      })
+      .forEach((filteredRegionsCountries) =>
+        this.createCountryCard(filteredRegionsCountries)
+      );
+  }
+
+  countriesReset() {
+    this.$countriesContent.innerHTML = "";
+  }
+
   createCountryCard(country) {
     const $country = document.createElement("div");
     $country.classList.add("country");
