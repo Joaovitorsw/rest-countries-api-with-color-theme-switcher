@@ -107,7 +107,7 @@ $ yarn start
 
 ---
 
-## :hammer\*and*wrench: \_Tecnologias*
+## :hammer_and_wrench: _Tecnologias_
 
 <div align="center">
 
@@ -181,7 +181,7 @@ Desenvolvido com ❤️ por João Vitor Pereira dos Santos 👋🏽 Meus Contato
 
 ---
 
-## :balance\*scale: _Licença_
+## :balance_scale: _Licença_
 
 <div align="center">
 
