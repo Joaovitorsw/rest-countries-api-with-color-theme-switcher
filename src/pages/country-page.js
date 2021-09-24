@@ -21,13 +21,15 @@ export async function CountryPage(id) {
   const currenciesArray = Array.from(currencies);
   const currenciesExtract = Object.keys(currencies).forEach((item) => {
     const { name, symbol } = currencies[item];
-    currenciesArray.push(name, symbol);
+    currenciesArray.push(` ${name}  ${symbol} `);
   });
 
   const languagesArray = Array.from(languages);
   const languagesExtract = Object.keys(languages).forEach((item) => {
-    languagesArray.push(languages[item]);
+    languagesArray.push(`${languages[item]}`);
   });
+
+  console.log(currenciesArray);
 
   $countryContent.innerHTML = `
   <a href="/#"<button class="back"><img alt="&larr;" class="arrow" /> Back</button></a>`;
@@ -48,9 +50,9 @@ export async function CountryPage(id) {
       <li class="country-info"><span>Sub Region: </span>${subregion}</li>
       <li class="country-info"><span>Capital: </span>${capital}</li>
       <li class="country-info"><span>Top Level Domain: </span>${tld[0]}</li>
-      <li class="country-info"><span>Currencies: </span>${currenciesArray.join(" ,")}
+      <li class="country-info"><span>Currencies: </span>${currenciesArray.join(",")}
       </li>
-      <li class="country-info"><span>Languages: </span>${languagesArray.join("  ,")}
+      <li class="country-info"><span>Languages: </span>${languagesArray.join(",")}
       </li>
    </ul>
   `;
