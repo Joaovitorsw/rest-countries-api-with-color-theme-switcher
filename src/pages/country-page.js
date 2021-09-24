@@ -1,10 +1,9 @@
+import { CountryPageUI } from "../classes/country-page-ui.js";
 import { DynamicBorders } from "../classes/dynamic-borders.js";
 import { Utils } from "../classes/utils.js";
 
 export async function CountryPage(id) {
-  const request = await fetch(`https://restcountries.com/v3/alpha/${id}`);
-  const data = await request.json();
-  const actuallyCountry = data[0];
+  const actuallyCountry = await CountryPageUI.getCountry(id);
   const { flags, region, subregion, tld, cca3, capital, area, name, currencies, languages, borders } = actuallyCountry;
   const { common, official } = name;
 
@@ -35,7 +34,7 @@ export async function CountryPage(id) {
 
   $countryPage.innerHTML = `
      <div class="country-page-flag">
-      <img src="${flags[1]}" alt="${cca3}" />
+      <img src="${flags[0]}" alt="${cca3}" />
       </div>
       `;
 
