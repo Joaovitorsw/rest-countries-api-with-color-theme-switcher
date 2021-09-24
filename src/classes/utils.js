@@ -4,4 +4,8 @@ export class Utils {
     $element.classList.add(...className);
     return $element;
   }
+  static hasProperty = (property) => {
+    if (property === undefined) return (property = []);
+    return property;
+  };
 }

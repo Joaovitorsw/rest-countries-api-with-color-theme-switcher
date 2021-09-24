@@ -63,7 +63,7 @@ export class CountriesUI {
      Region:<span class="region-value">${region}</span>
      </h3>
     <h4 class="country-capital">
-      Capital:<span class="capital-value">${capital}</span>
+      Capital:<span class="capital-value">${Utils.hasProperty(capital)}</span>
      </h4><a/>`;
 
     $country.innerHTML = countryInnerHTML;

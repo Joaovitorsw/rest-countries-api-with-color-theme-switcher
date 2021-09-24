@@ -8,25 +8,20 @@ export async function CountryPage(id) {
   const { flags, region, continent, topLevelDomain, alpha3Code, capital, population, name, nativeName, currencies, languages, borders } =
     actuallyCountry;
 
-  const hasProperty = (property) => {
-    if (property === undefined) return (property = []);
-    return property;
-  };
-
   const $countryPage = Utils.createElementWithClass("div", "country-page");
   const $countryContent = Utils.createElementWithClass("div", "country-content");
   const $countryText = Utils.createElementWithClass("div", "country-text");
-  const dynamicBorders = await new DynamicBorders(hasProperty(borders));
+  const dynamicBorders = await new DynamicBorders(Utils.hasProperty(borders));
   const $divBorders = await dynamicBorders.dynamicBordersUI();
 
   const currenciesArray = [];
-  const currenciesExtract = Object.keys(hasProperty(currencies)).forEach((item) => {
+  const currenciesExtract = Object.keys(Utils.hasProperty(currencies)).forEach((item) => {
     const { name, code } = currencies[item];
     currenciesArray.push(` ${name}  ${code} `);
   });
 
   const languagesArray = [];
-  const languagesExtract = Object.keys(hasProperty(languages)).forEach((item) => {
+  const languagesExtract = Object.keys(Utils.hasProperty(languages)).forEach((item) => {
     const { name, nativeName } = languages[item];
     languagesArray.push(` ${name}  ${nativeName} `);
   });
@@ -48,7 +43,7 @@ export async function CountryPage(id) {
       <li class="country-info"><span>Population: </span> ${population.toLocaleString("pt-BR")}</li>
       <li class="country-info"><span>Region: </span>${region}</li>
       <li class="country-info"><span>Sub Region: </span>${continent}</li>
-      <li class="country-info"><span>Capital: </span>${hasProperty(capital)}</li>
+      <li class="country-info"><span>Capital: </span>${Utils.hasProperty(capital)}</li>
       <li class="country-info"><span>Top Level Domain: </span>${topLevelDomain}</li>
       <li class="country-info"><span>Currencies: </span>${currenciesArray.join(",")}
       </li>
