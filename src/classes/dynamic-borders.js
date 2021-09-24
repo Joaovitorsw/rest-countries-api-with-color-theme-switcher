@@ -1,3 +1,7 @@
+import { BasicStorage } from "./basic-storage.js";
+import { CountryPageUI } from "./country-page-ui.js";
+import { Utils } from "./utils.js";
+
 export class DynamicBorders {
   #countriesBorders;
   constructor(countriesBorders) {
@@ -7,11 +11,10 @@ export class DynamicBorders {
     return this.createContent();
   }
   async createContent() {
-    const $divBorders = document.createElement("div");
+    const $divBorders = Utils.createElementWithClass("div", "country-page-shortcuts");
     const title = document.createElement("h2");
     const $countryPageBorders = await this.createBordersCountries();
 
-    $divBorders.classList.add("country-page-shortcuts");
     title.innerText = "Border Countries:";
     $divBorders.appendChild(title);
     $divBorders.appendChild($countryPageBorders);
@@ -19,10 +22,8 @@ export class DynamicBorders {
     return $divBorders;
   }
   async createBordersCountries() {
-    const $countryPageBorders = document.createElement("ul");
+    const $countryPageBorders = Utils.createElementWithClass("ul", "country-page-borders");
     const countryBorders = this.#countriesBorders;
-
-    $countryPageBorders.classList.add("country-page-borders");
 
     countryBorders.forEach(async (country) => {
       const $countryPage = await this.borderCountry(country);
@@ -32,14 +33,13 @@ export class DynamicBorders {
     return $countryPageBorders;
   }
   async borderCountry(borderCountry) {
-    const requestName = await fetch(`https://restcountries.com/v3/alpha/${borderCountry}`);
-    const data = await requestName.json();
-    const countryBorder = data[0];
-    const $countryPage = document.createElement("a");
+    const countryBorder = await CountryPageUI.getCountry(borderCountry);
+    const { name } = countryBorder;
+    const { common } = name;
+    const $countryPage = createElementWithClass("a", "country-borders");
     const patternRemoveParentheses = / *\([^)]*\) */g;
     $countryPage.setAttribute("href", `/#countrypage/${borderCountry}`);
-    $countryPage.classList.add("country-borders");
-    $countryPage.innerHTML = `<li>${countryBorder.name.official.replace(patternRemoveParentheses, "")}</li>`;
+    $countryPage.innerHTML = `<li>${common.replace(patternRemoveParentheses, "")}</li>`;
 
     return $countryPage;
   }
