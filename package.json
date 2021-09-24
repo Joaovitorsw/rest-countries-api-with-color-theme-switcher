@@ -19,6 +19,7 @@
     "svg-to-jsx": "^1.0.3"
   },
   "devDependencies": {
-    "@parcel/transformer-image": "^2.0.0-rc.0"
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.0.0-rc.0"
   }
 }
