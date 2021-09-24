@@ -34,7 +34,7 @@ export async function CountryPage(id) {
 
   $countryPage.innerHTML = `
      <div class="country-page-flag">
-      <img src="${flags[0]}" alt="${cca3}" />
+      <img src="${flags[0]}" alt="${cca3}" loading="lazy"/>
       </div>
       `;
 

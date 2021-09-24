@@ -55,7 +55,7 @@ export class CountriesUI {
 
     const countryInnerHTML = ` 
     <a href="/#countrypage/${cca2}">
-    <img src="${flags[0]}" alt="${cca3}" class="country-flag"/>
+    <img src="${flags[0]}" alt="${cca3}" class="country-flag" loading="lazy"/>
     <h1 class="country-name">${common}</h1>
     <h2 class="country-population"> Population:
       <span class="population-value">${area.toLocaleString("pt-BR")}</span>
