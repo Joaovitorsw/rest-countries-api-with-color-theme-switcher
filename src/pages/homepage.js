@@ -1,4 +1,4 @@
-import { Utils } from "../classes/utils";
+import { Utils } from "../classes/utils.js";
 
 export async function HomePage() {
   const $div = Utils.createElementWithClass("div", "homepage");
