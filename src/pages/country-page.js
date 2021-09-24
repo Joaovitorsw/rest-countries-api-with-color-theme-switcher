@@ -28,7 +28,7 @@ https://restcountries.com/v3/alpha/${id}`);
 
    <h1 class="country-page-name">${actuallyCountry.name.official}</h1>
    <ul class="country-list-info">
-      <li class="country-info"><span>Native Name: </span>${actuallyCountry.name.nativeName.spa.official}</li>
+      <li class="country-info"><span>Native Name: </span>${actuallyCountry.name.nativeName.official}</li>
       <li class="country-info"><span>Population: </span> ${populationInDecimal}</li>
       <li class="country-info"><span>Region: </span>${actuallyCountry.region}</li>
       <li class="country-info"><span>Sub Region: </span>${actuallyCountry.subregion}</li>
