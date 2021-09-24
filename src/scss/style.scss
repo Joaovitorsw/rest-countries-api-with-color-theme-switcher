@@ -69,13 +69,13 @@ header {
   width: 13px;
   height: 13px;
   margin-right: 9px;
-  content: url(/images/dark-mode-icon.svg);
+  content: url(../images/dark-mode-icon.svg);
 }
 :root.dark-mode .dark-mode-icon {
   width: 13px;
   height: 13px;
   margin-right: 9px;
-  content: url(/images/dark-mode-icon-dark.svg);
+  content: url(../images/dark-mode-icon-dark.svg);
 }
 
 .header-dark-mode-icon span {

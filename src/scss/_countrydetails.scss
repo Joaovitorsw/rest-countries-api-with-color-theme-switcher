@@ -62,11 +62,11 @@
 }
 .arrow {
   margin-right: 5px;
-  content: url(/images/arrow-right.svg);
+  content: url(../images/arrow-right.svg);
 }
 :root.dark-mode .arrow {
   margin-right: 5px;
-  content: url(/images/arrow-right-dark.svg);
+  content: url(../images/arrow-right-dark.svg);
 }
 .country-text {
   margin-top: 20px;

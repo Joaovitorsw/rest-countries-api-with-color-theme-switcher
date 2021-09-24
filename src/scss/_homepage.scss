@@ -36,13 +36,13 @@
 .search-bar-icon {
   margin-left: 25px;
   margin-right: 10px;
-  content: url(/images/search-bar-icon.svg);
+  content: url(../images/search-bar-icon.svg);
   transition: transform 0.3s ease;
 }
 :root.dark-mode .search-bar-icon {
   margin-left: 25px;
   margin-right: 10px;
-  content: url(/images/search-bar-icon-dark.svg);
+  content: url(../images/search-bar-icon-dark.svg);
   transition: transform 0.3s ease;
 }
 .search-bar-icon:hover {
@@ -111,7 +111,7 @@
 }
 .selected::after {
   content: "";
-  background: url("/images/icon-arrow-down.svg");
+  background: url(../images/icon-arrow-down.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -128,7 +128,7 @@
 
 :root.dark-mode .selected::after {
   content: "";
-  background: url("/images/icon-arrow-down-dark.svg");
+  background: url(../images/icon-arrow-down-dark.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
