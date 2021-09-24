@@ -1,4 +1,3 @@
-import { BasicStorage } from "./basic-storage.js";
 import { CountryPageUI } from "./country-page-ui.js";
 import { Utils } from "./utils.js";
 
@@ -36,7 +35,7 @@ export class DynamicBorders {
     const countryBorder = await CountryPageUI.getCountry(borderCountry);
     const { name } = countryBorder;
     const { common } = name;
-    const $countryPage = createElementWithClass("a", "country-borders");
+    const $countryPage = Utils.createElementWithClass("a", "country-borders");
     const patternRemoveParentheses = / *\([^)]*\) */g;
     $countryPage.setAttribute("href", `/#countrypage/${borderCountry}`);
     $countryPage.innerHTML = `<li>${common.replace(patternRemoveParentheses, "")}</li>`;
