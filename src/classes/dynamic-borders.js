@@ -34,11 +34,11 @@ export class DynamicBorders {
   async borderCountry(borderCountry) {
     const countryBorder = await CountryPageUI.getCountry(borderCountry);
     const { name } = countryBorder;
-    const { common } = name;
+
     const $countryPage = Utils.createElementWithClass("a", "country-borders");
     const patternRemoveParentheses = / *\([^)]*\) */g;
     $countryPage.setAttribute("href", `/#countrypage/${borderCountry}`);
-    $countryPage.innerHTML = `<li>${common.replace(patternRemoveParentheses, "")}</li>`;
+    $countryPage.innerHTML = `<li>${name.replace(patternRemoveParentheses, "")}</li>`;
 
     return $countryPage;
   }

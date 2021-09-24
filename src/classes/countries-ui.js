@@ -36,7 +36,7 @@ export class CountriesUI {
 
     regions
       .filter((regionCountries) => {
-        const regionCountriesLowerCase = regionCountries.name.official.toLowerCase();
+        const regionCountriesLowerCase = regionCountries.name.toLowerCase();
         const userText = this.inputText.toLowerCase();
         const hasCountry = regionCountriesLowerCase.indexOf(userText) > -1;
         return hasCountry ?? regionCountries;
@@ -49,16 +49,15 @@ export class CountriesUI {
     this.$countriesContent.innerHTML = "";
   }
 
-  createCountryCard({ flags, region, cca2, cca3, capital, area, name } = country) {
+  createCountryCard({ flags, region, alpha2Code, alpha3Code, capital, population, name } = country) {
     const $country = Utils.createElementWithClass("div", "country");
-    const { common } = name;
 
     const countryInnerHTML = ` 
-    <a href="/#countrypage/${cca2}">
-    <img src="${flags[0]}" alt="${cca3}" class="country-flag" loading="lazy"/>
-    <h1 class="country-name">${common}</h1>
+    <a href="/#countrypage/${alpha2Code}">
+    <img src="${flags[0]}" alt="${alpha3Code}" class="country-flag" loading="lazy"/>
+    <h1 class="country-name">${name}</h1>
     <h2 class="country-population"> Population:
-      <span class="population-value">${area.toLocaleString("pt-BR")}</span>
+      <span class="population-value">${population.toLocaleString("pt-BR")}</span>
     </h2>
     <h3 class="country-region">
      Region:<span class="region-value">${region}</span>
