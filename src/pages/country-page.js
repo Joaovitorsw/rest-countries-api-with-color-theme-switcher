@@ -4,7 +4,7 @@ import { Utils } from "../classes/utils.js";
 
 export async function CountryPage(id) {
   const actuallyCountry = await CountryPageUI.getCountry(id);
-  console.log(actuallyCountry);
+
   const { flags, region, continent, topLevelDomain, alpha3Code, capital, population, name, nativeName, currencies, languages, borders } =
     actuallyCountry;
 
