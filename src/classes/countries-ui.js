@@ -27,9 +27,13 @@ export class CountriesUI {
 
   async createRegions() {
     const hasRegion = this.regionValue !== "Filter by Region";
+
     const countriesFn = hasRegion ? CountriesAPI.getRegions : CountriesAPI.getCountries;
+
     const regions = await countriesFn(this.regionValue);
+
     this.countriesReset();
+
     regions
       .filter((regionCountries) => {
         const regionCountriesLowerCase = regionCountries.name.official.toLowerCase();
@@ -51,7 +55,7 @@ export class CountriesUI {
 
     const countryInnerHTML = ` 
     <a href="/#countrypage/${cca2}">
-    <img src="${flags[1]}" alt="${cca3}" class="country-flag"/>
+    <img src="${flags[0]}" alt="${cca3}" class="country-flag"/>
     <h1 class="country-name">${common}</h1>
     <h2 class="country-population"> Population:
       <span class="population-value">${area.toLocaleString("pt-BR")}</span>

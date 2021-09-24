@@ -40,9 +40,7 @@ export class FloatingLabelUI {
   #hasValue() {
     const inputValue = this.$searchInput.value;
     const hasValueInput = inputValue !== "";
-    const classFn = hasValueInput
-      ? this.#elementClassAdd
-      : this.#elementClassRemove;
+    const classFn = hasValueInput ? this.#elementClassAdd : this.#elementClassRemove;
     classFn(this.$searchLabel, "active");
   }
 

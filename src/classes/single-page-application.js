@@ -29,12 +29,8 @@ export class SinglePageApplication {
   }
   static setupHome() {
     const countries = new CountriesUI(".countries");
-    const filterByRegion = new MenuUI("#root", (region) =>
-      countries.selectedCallback(region)
-    );
-    const searchBar = new FloatingLabelUI(".homepage", async (text) =>
-      countries.inputCallback(text)
-    );
+    const filterByRegion = new MenuUI("#root", (region) => countries.selectedCallback(region));
+    const searchBar = new FloatingLabelUI(".homepage", async (text) => countries.inputCallback(text));
     searchBar.FloatingLabelUI();
     filterByRegion.menuUI();
   }
