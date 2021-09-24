@@ -5,7 +5,7 @@ export class CountriesAPI {
     const cachedCountries = BasicStorage.get("countries");
     if (cachedCountries) return cachedCountries;
 
-    const countries = await fetch(`https://restcountries.com/v3/all`);
+    const countries = await fetch(`https://restcountries.com/v2/all`);
     const data = await countries.json();
     BasicStorage.set("countries", data);
 
