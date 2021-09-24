@@ -26,21 +26,17 @@ export class CountriesUI {
 
   async createRegions() {
     const hasRegion = this.regionValue !== "Filter by Region";
-    const countriesFn = hasRegion
-      ? CountriesAPI.getRegions
-      : CountriesAPI.getCountries;
+    const countriesFn = hasRegion ? CountriesAPI.getRegions : CountriesAPI.getCountries;
     const regions = await countriesFn(this.regionValue);
     this.countriesReset();
     regions
       .filter((regionCountries) => {
-        const regionCountriesLowerCase = regionCountries.name.toLowerCase();
+        const regionCountriesLowerCase = regionCountries.name.official.toLowerCase();
         const userText = this.inputText.toLowerCase();
         const hasCountry = regionCountriesLowerCase.indexOf(userText) > -1;
         return hasCountry ?? regionCountries;
       })
-      .forEach((filteredRegionsCountries) =>
-        this.createCountryCard(filteredRegionsCountries)
-      );
+      .forEach((filteredRegionsCountries) => this.createCountryCard(filteredRegionsCountries));
     this.#countriesClass();
   }
 
@@ -51,16 +47,17 @@ export class CountriesUI {
   createCountryCard(country) {
     const $country = document.createElement("div");
     $country.classList.add("country");
-    $country.id = country.alpha2Code;
 
-    const populationToDecimal = country.population.toLocaleString("pt-BR");
+    $country.id = country.cca2;
+
+    const populationToDecimal = country.area.toLocaleString("pt-BR");
 
     const countryInnerHTML = ` <a href="/#countrypage/${$country.id}"><img
-            src="${country.flag}"
-            alt="${country.alpha3Code}"
+            src="${country.flags[1]}"
+            alt="${country.cca3}"
             class="country-flag"
           />
-          <h1 class="country-name">${country.name}</h1>
+          <h1 class="country-name">${country.name.official}</h1>
           <h2 class="country-population">
             Population:<span class="population-value">${populationToDecimal}</span>
           </h2>
@@ -78,12 +75,9 @@ export class CountriesUI {
 
   #countriesClass() {
     setTimeout(() => {
-      const countryLength =
-        this.$countriesContent.querySelectorAll(".country").length;
+      const countryLength = this.$countriesContent.querySelectorAll(".country").length;
       const isLessThant6 = countryLength < 6;
-      const classFn = isLessThant6
-        ? this.#elementClassAdd
-        : this.#elementClassRemove;
+      const classFn = isLessThant6 ? this.#elementClassAdd : this.#elementClassRemove;
       classFn(this.$countriesContent, "active");
     }, 60);
     clearTimeout();
