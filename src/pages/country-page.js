@@ -1,42 +1,57 @@
 import { DynamicBorders } from "../classes/dynamic-borders.js";
+import { Utils } from "../classes/utils.js";
 
 export async function CountryPage(id) {
-  const request = await fetch(`
-https://restcountries.com/v3/alpha/${id}`);
+  const request = await fetch(`https://restcountries.com/v3/alpha/${id}`);
   const data = await request.json();
   const actuallyCountry = data[0];
+  const { flags, region, subregion, tld, cca3, capital, area, name, currencies, languages, borders } = actuallyCountry;
+  const { common, official } = name;
 
-  const $countryPage = document.createElement("div");
-  const $countryContent = document.createElement("div");
-  const $countryText = document.createElement("div");
-  const dynamicBorders = await new DynamicBorders(actuallyCountry.borders);
+  const hasBorder = (borders) => {
+    if (borders === undefined) return (borders = []);
+    return borders;
+  };
+
+  const $countryPage = Utils.createElementWithClass("div", "country-page");
+  const $countryContent = Utils.createElementWithClass("div", "country-content");
+  const $countryText = Utils.createElementWithClass("div", "country-text");
+  const dynamicBorders = await new DynamicBorders(hasBorder(borders));
   const $divBorders = await dynamicBorders.dynamicBordersUI();
 
-  $countryPage.classList.add("country-page");
-  $countryContent.classList.add("country-content");
-  $countryText.classList.add("country-text");
-  console.log(actuallyCountry);
-  const populationInDecimal = actuallyCountry.area.toLocaleString("pt-BR");
+  const currenciesArray = Array.from(currencies);
+  const currenciesExtract = Object.keys(currencies).forEach((item) => {
+    const { name, symbol } = currencies[item];
+    currenciesArray.push(name, symbol);
+  });
 
-  $countryContent.innerHTML = `     <a href="/#"<button class="back"><img alt="&larr;" class="arrow" /> Back</button></a>`;
+  const languagesArray = Array.from(languages);
+  const languagesExtract = Object.keys(languages).forEach((item) => {
+    languagesArray.push(languages[item]);
+  });
+
+  $countryContent.innerHTML = `
+  <a href="/#"<button class="back"><img alt="&larr;" class="arrow" /> Back</button></a>`;
+
   $countryPage.innerHTML = `
      <div class="country-page-flag">
-      <img src="${actuallyCountry.flags[1]}" alt="${actuallyCountry.cca3}" />
+      <img src="${flags[1]}" alt="${cca3}" />
       </div>
       `;
+
   $countryText.innerHTML = `      
 
-   <h1 class="country-page-name">${actuallyCountry.name.official}</h1>
+   <h1 class="country-page-name">${common}</h1>
    <ul class="country-list-info">
-      <li class="country-info"><span>Native Name: </span>${actuallyCountry.name.nativeName.official}</li>
-      <li class="country-info"><span>Population: </span> ${populationInDecimal}</li>
-      <li class="country-info"><span>Region: </span>${actuallyCountry.region}</li>
-      <li class="country-info"><span>Sub Region: </span>${actuallyCountry.subregion}</li>
-      <li class="country-info"><span>Capital: </span>${actuallyCountry.capital}</li>
-      <li class="country-info"><span>Top Level Domain: </span>${actuallyCountry.tld[0]}</li>
-      <li class="country-info"><span>Currencies: </span>${actuallyCountry.currencies}
+      <li class="country-info"><span>Native Name: </span>${official}</li>
+      <li class="country-info"><span>Population: </span> ${area.toLocaleString("pt-BR")}</li>
+      <li class="country-info"><span>Region: </span>${region}</li>
+      <li class="country-info"><span>Sub Region: </span>${subregion}</li>
+      <li class="country-info"><span>Capital: </span>${capital}</li>
+      <li class="country-info"><span>Top Level Domain: </span>${tld[0]}</li>
+      <li class="country-info"><span>Currencies: </span>${currenciesArray.join(" ,")}
       </li>
-      <li class="country-info"><span>Languages: </span>${actuallyCountry.languages}
+      <li class="country-info"><span>Languages: </span>${languagesArray.join("  ,")}
       </li>
    </ul>
   `;
