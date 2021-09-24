@@ -1,0 +1,89 @@
+@import "homepage";
+@import "countrydetails";
+
+:root {
+  --white-color: #ffff;
+  --white-color-dark: #00000015;
+  --black-color: black;
+  --background-color: white;
+}
+
+:root.dark-mode {
+  --white-color: #2b3743;
+  --white-color-dark: #00000015;
+  --black-color: white;
+  --background-color: #212e37;
+}
+
+a {
+  color: var(--black-color);
+  text-decoration: none;
+}
+
+header,
+#root,
+html {
+  transition: background-color 350ms ease-out, color 0.3s;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  background-color: var(--white-color);
+  z-index: -1000;
+  box-shadow: 0px 0px 3px 3px var(--white-color-dark);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 11.5%;
+}
+
+header,
+.homepage,
+.country-content {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: var(--black-color);
+  padding: 40px 35px;
+  max-height: 62px;
+  user-select: none;
+}
+
+.header-title {
+  font-weight: 800;
+  font-size: 15px;
+}
+.header-dark-mode-icon {
+  cursor: pointer;
+  display: flex;
+  margin-right: 5px;
+  align-items: center;
+}
+.dark-mode-icon {
+  width: 13px;
+  height: 13px;
+  margin-right: 9px;
+  content: url(/images/dark-mode-icon.svg);
+}
+:root.dark-mode .dark-mode-icon {
+  width: 13px;
+  height: 13px;
+  margin-right: 9px;
+  content: url(/images/dark-mode-icon-dark.svg);
+}
+
+.header-dark-mode-icon span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#root,
+html {
+  background-color: var(--background-color);
+}
