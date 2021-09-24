@@ -13,9 +13,7 @@ export class CountriesAPI {
   };
 
   static getRegions = async (region) => {
-    const regionRequest = await fetch(`https://restcountries.com/v3/region/${region}
-    `);
-
-    return regionRequest.json();
+    const countries = await this.getCountries();
+    return countries.filter((countries) => countries.continent === region);
   };
 }
