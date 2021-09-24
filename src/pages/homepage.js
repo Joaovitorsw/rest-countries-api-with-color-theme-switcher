@@ -1,6 +1,7 @@
+import { Utils } from "../classes/utils";
+
 export async function HomePage() {
-  const $div = document.createElement("div");
-  $div.classList.add("homepage");
+  const $div = Utils.createElementWithClass("div", "homepage");
 
   $div.innerHTML = `  <div class="navigation-content">
           <div class="search-bar">
