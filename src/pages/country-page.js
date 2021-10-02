@@ -5,7 +5,7 @@ import { Utils } from "../classes/utils.js";
 export async function CountryPage(id) {
   const actuallyCountry = await CountryPageUI.getCountry(id);
 
-  const { flags, region, continent, topLevelDomain, alpha3Code, capital, population, name, nativeName, currencies, languages, borders } =
+  const { flag, region, subregion, topLevelDomain, alpha3Code, capital, population, name, nativeName, currencies, languages, borders } =
     actuallyCountry;
 
   const $countryPage = Utils.createElementWithClass("div", "country-page");
@@ -31,7 +31,7 @@ export async function CountryPage(id) {
 
   $countryPage.innerHTML = `
      <div class="country-page-flag">
-      <img src="${flags[0]}" alt="${alpha3Code}"/>
+      <img src="${flag}" alt="${alpha3Code}"/>
       </div>
       `;
 
@@ -42,7 +42,7 @@ export async function CountryPage(id) {
       <li class="country-info"><span>Native Name: </span>${nativeName}</li>
       <li class="country-info"><span>Population: </span> ${population.toLocaleString("pt-BR")}</li>
       <li class="country-info"><span>Region: </span>${region}</li>
-      <li class="country-info"><span>Sub Region: </span>${continent}</li>
+      <li class="country-info"><span>Sub Region: </span>${subregion}</li>
       <li class="country-info"><span>Capital: </span>${Utils.hasProperty(capital)}</li>
       <li class="country-info"><span>Top Level Domain: </span>${topLevelDomain}</li>
       <li class="country-info"><span>Currencies: </span>${currenciesArray.join(",")}
