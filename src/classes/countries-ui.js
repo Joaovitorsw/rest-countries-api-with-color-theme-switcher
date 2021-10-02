@@ -49,12 +49,12 @@ export class CountriesUI {
     this.$countriesContent.innerHTML = "";
   }
 
-  createCountryCard({ flags, region, alpha2Code, alpha3Code, capital, population, name } = country) {
+  createCountryCard({ flag, region, alpha2Code, alpha3Code, capital, population, name } = country) {
     const $country = Utils.createElementWithClass("div", "country");
 
     const countryInnerHTML = ` 
     <a href="/#countrypage/${alpha2Code}">
-    <img src="${flags[0]}" alt="${alpha3Code}" class="country-flag" loading="lazy"/>
+    <img src="${flag}" alt="${alpha3Code}" class="country-flag" loading="lazy"/>
     <h1 class="country-name">${name}</h1>
     <h2 class="country-population"> Population:
       <span class="population-value">${population.toLocaleString("pt-BR")}</span>
