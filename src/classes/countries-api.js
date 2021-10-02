@@ -14,6 +14,6 @@ export class CountriesAPI {
 
   static getRegions = async (region) => {
     const countries = await this.getCountries();
-    return countries.filter((countries) => countries.continent === region);
+    return countries.filter((countries) => countries.region === region);
   };
 }
