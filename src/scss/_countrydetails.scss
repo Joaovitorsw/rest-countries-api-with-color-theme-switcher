@@ -124,7 +124,7 @@
   max-height: 32px;
   padding: 8px;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 660px) {
   header::before {
     box-shadow: 0px 0px 6px 6px var(--white-color-dark);
     height: 8.3%;
@@ -156,7 +156,8 @@
   }
   .search-bar {
     width: 100%;
-    max-width: 400px;
+    margin-right: 20px;
+    max-width: 300px;
   }
   .select-box {
     width: 100%;
@@ -168,12 +169,13 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    row-gap: 40px;
-    column-gap: 40px;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, 280px);
+    gap: 40px;
   }
   .countries.active {
-    grid-template-columns: repeat(auto-fit, 250px);
+    grid-template-columns: repeat(auto-fit, 280px);
+    justify-content: unset;
   }
   .country {
     display: inline;
